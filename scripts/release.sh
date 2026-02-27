@@ -4,7 +4,8 @@ set -euo pipefail
 # Local release script for ses
 # Usage:
 #   VERSION=0.0.1 ./scripts/release.sh
-#   ./scripts/release.sh  (uses git tag if available)
+#   BUMP=minor ./scripts/release.sh
+#   ./scripts/release.sh  (defaults to patch bump from latest tag)
 #
 # Outputs:
 #   ses-<version>-macos.tar.gz and SHA256
@@ -12,20 +13,46 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BIN_RELATIVE=".build/release/ses"
 
+bump_version() {
+  local base="$1"
+  local bump="${2:-patch}"
+  IFS='.' read -r major minor patch <<< "$base"
+  major="${major:-0}"
+  minor="${minor:-0}"
+  patch="${patch:-0}"
+
+  case "$bump" in
+    major)
+      major=$((major + 1))
+      minor=0
+      patch=0
+      ;;
+    minor)
+      minor=$((minor + 1))
+      patch=0
+      ;;
+    patch|*)
+      patch=$((patch + 1))
+      ;;
+  esac
+
+  echo "${major}.${minor}.${patch}"
+}
+
 resolve_version() {
   if [[ -n "${VERSION:-}" ]]; then
     echo "${VERSION#v}"
     return 0
   fi
 
+  local base="0.0.0"
   if command -v git >/dev/null 2>&1; then
     if git -C "$ROOT_DIR" describe --tags --abbrev=0 >/dev/null 2>&1; then
-      git -C "$ROOT_DIR" describe --tags --abbrev=0 | sed 's/^v//'
-      return 0
+      base="$(git -C "$ROOT_DIR" describe --tags --abbrev=0 | sed 's/^v//')"
     fi
   fi
 
-  echo "0.0.0"
+  bump_version "$base" "${BUMP:-patch}"
 }
 
 VERSION_STR="$(resolve_version)"
