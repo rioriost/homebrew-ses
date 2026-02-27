@@ -1,6 +1,6 @@
 {
   "current_phase": "analysis",
-  "current_task": "Add automatic version bumping to release script",
+  "current_task": "Update Homebrew formula for v0.0.2",
   "last_action": "Commit starting",
   "blocking_issues": "None",
   "next_step": "Commit changes and update handoff"
