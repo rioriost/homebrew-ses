@@ -270,6 +270,7 @@ Error codes (fixed list):
 - `--no-session`
 - `--debug`
 - `--mcp`
+- `--version`
 - `--recommended`
 - `--vad-threshold-db <double>`
 - `--vad-hang-ms <int>`

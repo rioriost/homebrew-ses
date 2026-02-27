@@ -229,6 +229,7 @@ ses --device-id 2
 - `--no-session`
 - `--debug`
 - `--mcp`
+- `--version`
 - `--recommended`
 
 VAD/commit/監視系：

@@ -13,6 +13,7 @@ func testArgsDefaults() async throws {
     try assertTrue(args.noSession == false, "noSession should be false")
     try assertTrue(args.debug == false, "debug should be false")
     try assertTrue(args.mcp == false, "mcp should be false")
+    try assertTrue(args.version == false, "version should be false")
     try assertTrue(args.levelIntervalMs == 200, "levelIntervalMs should be 200")
     try assertTrue(args.vadThresholdDb == -30.0, "vadThresholdDb should be -30")
     try assertTrue(args.vadHangMs == 250, "vadHangMs should be 250")
@@ -50,6 +51,7 @@ func testArgsOverridesAndClamp() async throws {
         "--pretty",
         "--no-session",
         "--debug",
+        "--version",
     ])
 
     try assertTrue(args.deviceId == 3, "deviceId should be 3")
@@ -64,6 +66,7 @@ func testArgsOverridesAndClamp() async throws {
     try assertTrue(args.pretty == true, "pretty should be true")
     try assertTrue(args.noSession == true, "noSession should be true")
     try assertTrue(args.debug == true, "debug should be true")
+    try assertTrue(args.version == true, "version should be true")
 }
 
 func testSesErrorPayload() async throws {

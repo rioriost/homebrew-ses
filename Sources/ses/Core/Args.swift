@@ -9,6 +9,7 @@ public struct Args: Sendable {
     public let noSession: Bool
     public let debug: Bool
     public let mcp: Bool
+    public let version: Bool
 
     public let levelIntervalMs: Int64
     public let vadThresholdDb: Double
@@ -46,6 +47,7 @@ public struct Args: Sendable {
         let noSession = has("--no-session")
         let debug = has("--debug")
         let mcp = has("--mcp")
+        let version = has("--version")
 
         let watchdogTimeoutMs = i64("--watchdog-timeout-ms", 3000)
         let watchdogIntervalMs = i64("--watchdog-interval-ms", 1000)
@@ -77,6 +79,7 @@ public struct Args: Sendable {
             noSession: noSession,
             debug: debug,
             mcp: mcp,
+            version: version,
             levelIntervalMs: i64("--level-interval-ms", 200),
             vadThresholdDb: dbl("--vad-threshold-db", defaultVadThresholdDb),
             vadHangMs: i64("--vad-hang-ms", defaultVadHangMs),

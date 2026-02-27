@@ -1,4 +1,5 @@
 build:
+	bash ./scripts/generate-version.sh
 	swift build -c release --product ses
 
 test:

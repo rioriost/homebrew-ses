@@ -175,6 +175,7 @@ public final class MCPServer {
             noSession: base.noSession,
             debug: base.debug,
             mcp: true,
+            version: base.version,
             levelIntervalMs: levelIntervalMs,
             vadThresholdDb: vadThresholdDb,
             vadHangMs: vadHangMs,
