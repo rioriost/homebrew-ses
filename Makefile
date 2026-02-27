@@ -13,3 +13,6 @@ coverage:
 	xcrun llvm-cov report ./.build/debug/sesTestRunner -instr-profile=.build/coverage/default.profdata
 
 ci: build test coverage
+
+release:
+	bash ./scripts/release.sh
