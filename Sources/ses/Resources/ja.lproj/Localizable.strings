@@ -1,0 +1,11 @@
+/* Error messages */
+"device_disconnected" = "デバイスが切断されました。";
+"device_input_failed" = "デバイス入力の作成に失敗しました。";
+"mic_permission_denied_message" = "マイクの使用が許可されていません。";
+"mic_permission_denied_hint" = "システム設定 → プライバシーとセキュリティ → マイク → 'ses' を許可してください。";
+"speech_permission_denied_message" = "音声認識の許可がありません: %1$@";
+"speech_permission_denied_hint" = "システム設定 → プライバシーとセキュリティ → 音声認識 → 'ses' を許可してください。";
+"device_not_found_message" = "--device-id %1$@ が見つかりません。--list-devices を使用してください。";
+"recognizer_init_failed_message" = "ロケール %1$@ の SFSpeechRecognizer を作成できませんでした。";
+"recognizer_unavailable_message" = "SFSpeechRecognizer が現在利用できません。";
+"recognition_task_error_message" = "音声認識タスクに失敗しました。";
